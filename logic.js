@@ -1,13 +1,8 @@
 
 
 function getComputerChoice() {
-  /* Pseudo code:
-      Generate a random number between 0 and 3
-      Reduce number down to 0, 1 or 2
-      If number is 1, return "Rock"
-      If number is 2, return "Paper"
-      If number is 3, return "Scissors"
-  */
+
+  // Returns one of "Rock, "Paper", "Scissors" with equal probability
 
   let random = 3 * Math.random()
   let intRandom = Math.floor(random)
@@ -67,13 +62,23 @@ function playRound(playerInput, computerInput) {
 
 }
 
+function reportGameResult(playerWinCount,computerWinCount) {
+
+  if (playerWinCount === computerWinCount) {
+    return "Game drawn!"
+  } else if (playerWinCount > computerWinCount) {
+    return "Player wins!"
+  } else {
+    return "Computer wins!"
+  }
+
+}
 
 
 function playGame() {
 
   let playerWinCount = 0
   let computerWinCount = 0
-
 
 
   for (let round = 1; round < numberOfRounds+1; round++) {
@@ -95,15 +100,10 @@ function playGame() {
 
   }
 
-  if (playerWinCount === computerWinCount) {
-    console.log("Game drawn!")
-  } else if (playerWinCount > computerWinCount) {
-    console.log("Player wins!")
-  } else {
-    console.log("Computer wins!")
-  }
+  console.log(reportGameResult(playerWinCount,computerWinCount))
 
 }
+
 
 let numberOfRounds = 5
 playGame()
