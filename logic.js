@@ -4,18 +4,17 @@ function getComputerChoice() {
 
   // Returns one of "Rock, "Paper", "Scissors" with equal probability
 
-  let random = 3 * Math.random()
-  let intRandom = Math.floor(random)
+  let intRandom = Math.floor(3 * Math.random())
 
   switch (intRandom) {
     case 0:
-      return "Rock"
+      return "rock"
       break;
     case 1:
-      return "Paper"
+      return "paper"
       break
     case 2:
-      return "Scissors"
+      return "scissors"
       break
     default:
       return "ERROR!"
@@ -23,42 +22,72 @@ function getComputerChoice() {
 
 }
 
-function playRound(playerInput, computerInput) {
+function resetGame() {
+  playerScore = 0
+  computerScore = 0
+}
+
+function addResultToDisplay(message,playerScore,computerScore) {
+  
+  let latestScoreMessage = `Latest score. Player: ${playerScore}, Computer: ${computerScore}`
+  
+  let endGameMessage = ""
+
+  if (playerScore === 5 || computerScore === 5) {
+    if (playerScore === 5) {
+      endGameMessage = "Player wins."
+    } else if (computerScore === 5) {
+      endGameMessage = "Computer wins."
+    }
+    resetGame()
+  }
+
+
+  newParagraph.textContent = message + ". " + latestScoreMessage + ". " + endGameMessage + "."
+  resultDisplay.appendChild(newParagraph)
+}
+
+
+function playRound(playerInput) {
 
   let playerSelection = playerInput.toLowerCase()
-  let computerSelection = computerInput.toLowerCase()
+  let computerSelection = getComputerChoice()
+
+  let message = ""
 
   if (playerSelection === computerSelection) {
-    return `No winner! You both chose ${playerSelection}`
+    message = `No winner! You both chose ${playerSelection}`
 
   } else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
-      console.log("You Lose! Paper beats Rock")
-      return "Computer Wins"
+      message = "You Lose! Paper beats Rock"
+      computerScore++
     } else if (computerSelection === "scissors") {
-      console.log("You Win! Rock beats Scissors")
-      return "Player Wins"
+      message = "You Win! Rock beats Scissors"
+      playerScore++
     }
 
   } else if (playerSelection === "paper") {
     if (computerSelection === "rock") {
-      console.log("You Win! Paper beats Rock")
-      return "Player Wins"
+      message = "You Win! Paper beats Rock"
+      playerScore++
     } else if (computerSelection === "scissors") {
-      console.log("You Lose! Scissors beat Paper")
-      return "Computer Wins"
+      message = "You Lose! Scissors beat Paper"
+      computerScore++
     }
 
   } else if (playerSelection === "scissors") {
     if (computerSelection === "paper") {
-      console.log("You Win! Scissors beat Paper")
-      return "Player Wins"
+      message = "You Win! Scissors beat Paper"
+      playerScore++
     } else if (computerSelection === "rock") {
-      console.log("You Lose! Rock beats Scissors")
-      return "Computer Wins"
+      message = "You Lose! Rock beats Scissors"
+      computerScore++
     }
 
   }
+
+  addResultToDisplay(message,playerScore,computerScore)
 
 }
 
@@ -81,8 +110,6 @@ function playGame() {
   let computerWinCount = 0
 
 
-  for (let round = 1; round < numberOfRounds+1; round++) {
-
     // Collect player and computer choices
     let playerSelection = prompt("Please enter any of \"Rock\", \"Paper\" or \"Scissors\"")
     console.log(`Player choice is ${playerSelection}.`)
@@ -98,12 +125,27 @@ function playGame() {
     }
     console.log(`Standing after round ${round} is Player: ${playerWinCount}, Computer: ${computerWinCount}`)
 
-  }
 
   console.log(reportGameResult(playerWinCount,computerWinCount))
 
 }
 
+function setupGameButtons() {
 
-let numberOfRounds = 5
-playGame()
+  const playerSelectButtons = document.querySelectorAll(".playerSelectButton")
+  playerSelectButtons.forEach( (element) => {
+    element.addEventListener("click", () => {
+      playRound(element.textContent)
+    })
+  })
+
+}
+
+// Main process - initialise scores, set up the DOM additions
+
+let computerScore = 0
+let playerScore = 0
+
+let resultDisplay = document.querySelector("#resultDisplay")
+let newParagraph = document.createElement("p")
+setupGameButtons()
