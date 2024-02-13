@@ -23,8 +23,7 @@
       <div class="scoreTitle">
         <p>Player Score</p>
       </div>
-      <div class="scoreDisplay">
-        <p>3</p>
+      <div id="playerScore" class="scoreDisplay">
       </div>
     </div>
 
@@ -38,19 +37,21 @@
       <div class="scoreTitle">
         <p>Computer Score</p>
       </div>
-      <div class="scoreDisplay">
-        <p>3</p>
+      <div id="computerScore" class="scoreDisplay">
       </div>
     </div>
 
   </div>
 
-  <div id="resultDisplay">
-    <p style="font-size: 20px"><b>Result for the round...</b></p>
+  <div id="resultContainer">
+    <p style="margin-bottom: 10px;"><b>Result for the round...</b></p>
+    <div id="resultDisplay">
+      <!-- DOM will be updated using script -->
+    </div>
   </div>
 
   <div class="restartContainer">
-    <button class="restartButton">Restart the game at any time</button>
+    <button id="restartButton">Restart the game at any time</button>
   </div>
   
 

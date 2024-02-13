@@ -1,17 +1,20 @@
 
 :root {
 
-  --backGroundColour: #FFFFFF;
+  --backGroundColour: #FFFFFF; /* exclusive to backgrounds */
+  --borderColour: #000000; /* exclusive to borders */
 
-  --lightTextColour: #f8f1e4;
-  --darkTextColour: #1f0000;
+  --lightTextColour: #f8f1e4; /* for use on dark backgrounds */
+  --darkTextColour: #1f0000; /* for use on light backgrounds */
 
   --lightestColour: #FDF0D5;
-  --headerColour: #003049;
-  --darkColour: #780000;
-  --midDarkColour: #c1121f;
-  --midColour: #669bbc;
-  --borderColour: #000000;
+  --midLightColour: #669bbc;
+  --midColour: #c1121f;
+  --midDarkColour: #780000;
+  --darkestColour: #003049;
+  
+  
+  
 
 }
 
@@ -19,15 +22,16 @@ body {
   background-color: var(--backGroundColour);
   font-family: Arial, Helvetica, sans-serif;
   color: var(--darkTextColour);
+  text-align: center;
 }
 
 .titleBar, .instructionsBar, #resultDisplay, .restartContainer {
   text-align:center;
-  color: var(--headerColour);
+  color: var(--midDarkColour);
 }
 
 .titleBar {
-  background-color: #003049;
+  background-color: var(--midDarkColour);
   color: var(--lightTextColour);
   padding: 5px;
   margin: 10px auto 60px auto;
@@ -36,7 +40,7 @@ body {
 }
 
 .instructionsBar {
-  text-align: center;
+
   font-size: 20px;
   padding: 5px;
   margin: 60px auto ;
@@ -57,11 +61,9 @@ body {
 
 .scoreContainer {
   min-width: 200px;
-  text-align: center;
 }
 
 .scoreTitle {
-  text-align: center;
   font-size: 20px;
   font-weight: 800;
   margin: 0 auto;
@@ -74,7 +76,7 @@ body {
   width: 100px;
   height: 100px;
   margin: auto;
-  background-color: var(--midDarkColour);
+  background-color: var(--midColour);
   border-radius: 20px;
   font-size: 40px;
   font-weight: 700;
@@ -89,7 +91,7 @@ body {
 }
 
 .playerSelectButton {
-  background-color: var(--darkColour);
+  background-color: var(--darkestColour);
   color: var(--lightTextColour);
   padding: 10px;
   min-width: 90px;
@@ -97,23 +99,32 @@ body {
   font-size: 16px;
 }
 
+#resultContainer {
+  margin: 60px auto;
+  font-size: 20px
+}
 
 #resultDisplay {
-  font-size: 16px;
-  margin: 60px auto;
+  font-size: 14px;
+  margin: auto;
+  min-height: 50px;
   width: 60vw;
-  background-color: var(--midColour);
-  padding: 1px 15px 15px 15px;
+  background-color: var(--midLightColour);
+  color: var(--darkTextColour);
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items:  center;
 }
 
 .restartContainer {
   margin-top: 60px;
 }
 
-.restartButton {
+#restartButton {
   font-size: 16px;
   padding: 5px 15px;
-  background-color: var(--darkColour);
+  background-color: var(--darkestColour);
   color: var(--lightTextColour);
   border: 2px solid var(--borderColour);
   border-radius: 8px;
