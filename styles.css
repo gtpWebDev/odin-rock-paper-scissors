@@ -1,0 +1,123 @@
+
+:root {
+
+  --backGroundColour: #FFFFFF;
+
+  --lightTextColour: #f8f1e4;
+  --darkTextColour: #1f0000;
+
+  --lightestColour: #FDF0D5;
+  --headerColour: #003049;
+  --darkColour: #780000;
+  --midDarkColour: #c1121f;
+  --midColour: #669bbc;
+  --borderColour: #000000;
+
+}
+
+body {
+  background-color: var(--backGroundColour);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--darkTextColour);
+}
+
+.titleBar, .instructionsBar, #resultDisplay, .restartContainer {
+  text-align:center;
+  color: var(--headerColour);
+}
+
+.titleBar {
+  background-color: #003049;
+  color: var(--lightTextColour);
+  padding: 5px;
+  margin: 10px auto 60px auto;
+  width: 80vw;
+  font-size: 22px;
+}
+
+.instructionsBar {
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  margin: 60px auto ;
+  width: 60vw;
+  border: 2px solid var(--borderColour);
+  background-color: var(--lightestColour)
+}
+
+.gamePlayContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  margin: 60px auto;
+  width: 80vw;
+}
+
+.scoreContainer {
+  min-width: 200px;
+  text-align: center;
+}
+
+.scoreTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 auto;
+}
+
+.scoreDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  background-color: var(--midDarkColour);
+  border-radius: 20px;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.rpsButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.playerSelectButton {
+  background-color: var(--darkColour);
+  color: var(--lightTextColour);
+  padding: 10px;
+  min-width: 90px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+
+#resultDisplay {
+  font-size: 16px;
+  margin: 60px auto;
+  width: 60vw;
+  background-color: var(--midColour);
+  padding: 1px 15px 15px 15px;
+}
+
+.restartContainer {
+  margin-top: 60px;
+}
+
+.restartButton {
+  font-size: 16px;
+  padding: 5px 15px;
+  background-color: var(--darkColour);
+  color: var(--lightTextColour);
+  border: 2px solid var(--borderColour);
+  border-radius: 8px;
+}
+
+
+

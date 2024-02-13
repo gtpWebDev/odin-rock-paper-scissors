@@ -1,5 +1,15 @@
 
 
+
+// Rock Paper Scissors game logic
+
+let computerScore = 0
+let playerScore = 0
+
+let resultDisplay = document.querySelector("#resultDisplay")
+let newParagraph = document.createElement("p")
+setupGameButtons()
+
 function getComputerChoice() {
 
   // Returns one of "Rock, "Paper", "Scissors" with equal probability
@@ -140,12 +150,3 @@ function setupGameButtons() {
   })
 
 }
-
-// Main process - initialise scores, set up the DOM additions
-
-let computerScore = 0
-let playerScore = 0
-
-let resultDisplay = document.querySelector("#resultDisplay")
-let newParagraph = document.createElement("p")
-setupGameButtons()
